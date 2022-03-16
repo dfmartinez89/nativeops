@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "nativeops",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
