@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>photo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <img alt="Photo" [src]="photo" />
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="takePicture()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <div id="container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Coordinates</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>Latitude: {{ latitude }}</ion-item>
+        <ion-item>Longitude: {{ longitude }}</ion-item>
+        <ion-item>Accuracy: {{ accuracy }}</ion-item>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

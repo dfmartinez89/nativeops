@@ -1,15 +1,26 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title> Blank </ion-title>
+  <ion-toolbar color="tertiary">
+    <ion-title> GPhoto </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <img alt="Photo" [src]="photo" />
 
-  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-    <ion-fab-button (click)="takePicture()">
-      <ion-icon name="camera"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+  <ion-item>
+
+    <ion-card>
+      <ion-item>
+        <ion-icon name="image" slot="start"></ion-icon>
+        <ion-label>Photos & locations</ion-label>
+      </ion-item>
+      <ion-card-content>
+        This app lets you to take a picture and tells your exact location
+      </ion-card-content>
+    </ion-card>
+  </ion-item>
+  <div id="container">
+    <ion-button routerLink="/photo">Take Photo</ion-button>
+    <ion-button routerLink="/list">Photos</ion-button>
+  </div>
+
 </ion-content>
