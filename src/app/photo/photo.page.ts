@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Camera, CameraResultType } from '@capacitor/camera';
 import { Geolocation } from '@capacitor/geolocation';
+import { GeolocationService } from '../services/geolocation.service';
 
 @Component({
   selector: 'app-photo',
@@ -16,8 +17,8 @@ export class PhotoPage implements OnInit {
   accuracy: number;
   photo: SafeResourceUrl;
 
-  constructor(private sanitizer: DomSanitizer) {
-    this.getLocation();
+  constructor(private sanitizer: DomSanitizer, private geoService: GeolocationService) {
+    
   }
 
   async takePicture() {

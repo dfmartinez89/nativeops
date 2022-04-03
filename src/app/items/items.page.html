@@ -1,9 +1,25 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>items</ion-title>
+  <ion-toolbar color="tertiary">
+    <ion-title>Photos</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen>
+  <ion-list>
+    <ion-list-header> Recent Photos </ion-list-header>
 
+    <ion-item *ngFor="let photo of photos" (click)="openModal()">
+      <ion-avatar slot="start">
+        <img src={{photo.src}} />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{photo.name}}</h2>
+        <h3>{{photo.text}}</h3>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
 </ion-content>
