@@ -10,7 +10,7 @@ import { GeolocationService } from '../services/geolocation.service';
 })
 export class PhotoPage implements OnInit {
   ngOnInit() {
-    this.photo = '../../assets/img/empty-image-png-7.png';
+    this.photo = '../../assets/img/images.png';
   }
 
   latitude: number;
@@ -40,7 +40,6 @@ export class PhotoPage implements OnInit {
     this.geoService.getLocation().then((res) => {
       this.latitude = res.latitude;
       this.longitude = res.longitude;
-    });
-    console.log(this.latitude);
+    }).catch(alert);
   }
 }

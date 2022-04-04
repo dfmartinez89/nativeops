@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Geolocation } from '@capacitor/geolocation'; 
+import { Geolocation } from '@capacitor/geolocation';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GeolocationService {
-
-  constructor() { }
+  constructor() {}
 
   async getLocation() {
-    const position = await Geolocation.getCurrentPosition();
-    return position.coords;
+    try {
+      const position = await Geolocation.getCurrentPosition();
+      return position.coords;
+    } catch (error) {}
   }
 }

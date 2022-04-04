@@ -12,8 +12,8 @@
 
   <img alt="Photo" [src]="photo" class="center" />
   <ion-item class="center" *ngIf="latitude && longitude">
-    <ion-label class="center" position="fixed" text-wrap>Latitude: {{ latitude }}</ion-label>
-    <ion-label class="center" position="fixed" text-wrap>Longitude: {{ longitude }}</ion-label>
+    <ion-label class="center" text-wrap>Latitude: {{ latitude }}</ion-label>
+    <ion-label class="center" text-wrap>Longitude: {{ longitude }}</ion-label>
   </ion-item>
 
   <ion-fab vertical="bottom" horizontal="center" slot="fixed">
