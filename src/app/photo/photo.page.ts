@@ -10,16 +10,19 @@ import { GeolocationService } from '../services/geolocation.service';
   styleUrls: ['./photo.page.scss'],
 })
 export class PhotoPage implements OnInit {
-  ngOnInit() {}
+  ngOnInit() {
+    this.photo = '../../assets/img/empty-image-png-7.png';
+  }
 
   latitude: number;
   longitude: number;
   accuracy: number;
   photo: SafeResourceUrl;
 
-  constructor(private sanitizer: DomSanitizer, private geoService: GeolocationService) {
-    
-  }
+  constructor(
+    private sanitizer: DomSanitizer,
+    private geoService: GeolocationService
+  ) {}
 
   async takePicture() {
     const image = await Camera.getPhoto({
@@ -31,12 +34,14 @@ export class PhotoPage implements OnInit {
     this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(
       image && image.webPath
     );
+    this.getLocationFromService();
   }
 
-  async getLocation() {
-    const position = await Geolocation.getCurrentPosition();
-    this.latitude = position.coords.latitude;
-    this.longitude = position.coords.longitude;
-    this.accuracy = position.coords.accuracy;
+  getLocationFromService() {
+    this.geoService.getLocation().then((res) => {
+      this.latitude = res.latitude;
+      this.longitude = res.longitude;
+    });
+    console.log(this.latitude);
   }
 }

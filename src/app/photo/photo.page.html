@@ -9,22 +9,20 @@
 
 
 <ion-content>
-  <img alt="Photo" src="../../assets/img/empty-image-png-7.png" />
-  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-    <ion-fab-button (click)="takePicture()">
-      <ion-icon name="camera"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-  <div id="container">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Coordinates</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-item>Latitude: {{ latitude }}</ion-item>
-        <ion-item>Longitude: {{ longitude }}</ion-item>
-        <ion-item>Accuracy: {{ accuracy }}</ion-item>
-      </ion-card-content>
-    </ion-card>
-  </div>
+
+  <ion-card >
+    <ion-card-header class="center" *ngIf="latitude && longitude">
+      <ion-card-title>Location</ion-card-title>
+      <ion-card-subtitle>Latitude: {{ latitude }}</ion-card-subtitle>
+      <ion-card-subtitle>Longitude: {{ longitude }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <img alt="Photo" [src]="photo" class="center"/>
+      <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+        <ion-fab-button (click)="takePicture()">
+          <ion-icon name="camera"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
