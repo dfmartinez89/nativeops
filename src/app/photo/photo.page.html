@@ -8,21 +8,18 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content padding>
 
-  <ion-card>
-    <ion-card-header class="center" *ngIf="latitude && longitude">
-      <ion-card-title>Location</ion-card-title>
-      <ion-card-subtitle>Latitude: {{ latitude }}</ion-card-subtitle>
-      <ion-card-subtitle>Longitude: {{ longitude }}</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      <img alt="Photo" [src]="photo" class="center" />
-    </ion-card-content>
-  </ion-card>
+  <img alt="Photo" [src]="photo" class="center" />
+  <ion-item class="center" *ngIf="latitude && longitude">
+    <ion-label class="center" position="fixed" text-wrap>Latitude: {{ latitude }}</ion-label>
+    <ion-label class="center" position="fixed" text-wrap>Longitude: {{ longitude }}</ion-label>
+  </ion-item>
+
   <ion-fab vertical="bottom" horizontal="center" slot="fixed">
     <ion-fab-button (click)="takePicture()">
       <ion-icon name="camera"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+
 </ion-content>
