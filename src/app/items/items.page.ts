@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
-import { ModalPage } from '../modal/modal.page';
+import { Toast } from '@capacitor/toast';
 
 @Component({
   selector: 'app-items',
@@ -40,14 +39,13 @@ export class ItemsPage implements OnInit {
       src: '../../assets/img/avatar-yoda.png',
     },
   ];
-  constructor(private modalCtrl: ModalController) {}
+  constructor() {}
 
   ngOnInit() {}
-  
-  async openModal() {
-    const modal = await this.modalCtrl.create({
-      component: ModalPage,
+
+  showToast = async () => {
+    await Toast.show({
+      text: 'Sorry, this page is undergoing some serious work',
     });
-    await modal.present();
-  }
+  };
 }

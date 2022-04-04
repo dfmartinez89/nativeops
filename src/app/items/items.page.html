@@ -11,7 +11,7 @@
   <ion-list>
     <ion-list-header> Recent Photos </ion-list-header>
 
-    <ion-item *ngFor="let photo of photos" (click)="openModal()">
+    <ion-item *ngFor="let photo of photos" (click)="showToast()">
       <ion-avatar slot="start">
         <img src={{photo.src}} />
       </ion-avatar>
